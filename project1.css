@@ -1,0 +1,45 @@
+#image_header{
+    background-color: black;
+    height: 200px;
+    width: 
+}
+#weather_api{
+    background-color: cornflowerblue;
+    height: 150px;
+}
+#filter_container{
+    background-color: darkgrey;
+    height: 600px;
+}
+#filter_boxes{
+    background-color: dimgray;
+    height: 300px;
+    margin: 50px 10px 0 10px;
+    padding: 50px;
+
+}
+#filter_1, #filter_2, #filter_3{
+    background-color: white;
+    padding: 0 7px 0 7px;
+    margin: 10px;
+}
+#search_button{
+    height: 75px;
+    margin: 85px 300px 0 300px;
+
+}
+#search{
+    font-size: 2em;
+    margin: 50px 200px 0 200px;
+}
+#map_container{
+    background-color: lightslategray;
+    height: 500px;
+
+}
+#map{
+    background-color: white;
+    height: 400px;
+    margin: 50px 0 50px 140px;
+    width: 75%
+}
