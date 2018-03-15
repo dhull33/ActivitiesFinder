@@ -1,3 +1,5 @@
+// need to enable Allow-control allow origin* google chrome plugin
+// https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Houston&key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs
 function update_location() {
     (function() {
         var activity = document.getElementById("activity").value;
@@ -88,11 +90,10 @@ function initMap(latitude, longitude, activityLength) {
           center: {lat: latitude[0], lng: longitude[0]}
         });
         
-        var locations = [
-            {lat: latitude[0], lng: longitude[0]},
-            {lat: latitude[1], lng: longitude[1]}
-          ]
-
+        var locations = [];
+        for (var i = 0; i < activityLength; i++) {
+            locations.push({lat: latitude[i], lng: longitude[0]})
+        }
         // Create an array of alphabetical characters used to label the markers.
         var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -107,10 +108,3 @@ function initMap(latitude, longitude, activityLength) {
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
         }
-
-//    for (var i = 0; i < activityLength; i++) {
-//        locations[i].lat = latitude[i];
-//        locations[i].lng = longitude[i];
-//        alert(locations);
-//    }
-        
