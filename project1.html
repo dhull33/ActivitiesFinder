@@ -48,7 +48,7 @@
                             <div class="container center" id="filter_1">
 <!--                                <input type="text" id="input:checked" onkeyup="myFunction()" placeholder="Search for city..">-->
 <!--                             -->
-                                <input type="text" id="location" onblur="update_location()" placeholder="Search for city..">
+                                <input type="text" id="location" onblur="update_weather()" placeholder="Search for city..">
                             </div>
                         
                             <div class="container center" id="filter_2">
@@ -60,44 +60,44 @@
                                   </tr>
                                   <tr>
                                       <td>
-                                      <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                      <label for="subscribeNews">Indoor</label>
+                                      <input type="checkbox" id="check_box1" value="Indoor|">
+                                      <label for="check_box1">Indoor</label>
                                       </td>
                                       <td>
-                                      <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                      <label for="subscribeNews">Outdoor</label>    
+                                      <input type="checkbox" id="check_box2" value="Outside|">
+                                      <label for="check_box2">Outdoor</label>    
                                       </td>
                                       <td>
-                                      <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                      <label for="subscribeNews">Sports</label>    
+                                      <input type="checkbox" id="check_box3" value="Sports|">
+                                      <label for="check_box3">Sports</label>    
                                       </td>
                                   </tr>
                                   <tr>
                                         <td>
-                                        <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                        <label for="subscribeNews">Shopping</label>
+                                        <input type="checkbox" id="check_box4" value="Shopping|">
+                                        <label for="check_box4">Shopping</label>
                                         </td>
                                         <td>
-                                        <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                        <label for="subscribeNews">Spa & Wellness</label>    
+                                        <input type="checkbox" id="check_box5" value="Spa|Wellness|">
+                                        <label for="check_box5">Spa & Wellness</label>    
                                         </td>
                                         <td>
-                                        <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                        <label for="subscribeNews">Sights & Landmarks</label>    
+                                        <input type="checkbox" id="check_box6" value="Landmark|">
+                                        <label for="check_box6">Sights & Landmarks</label>    
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                        <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                        <label for="subscribeNews">Indoor</label>
+                                        <input type="checkbox" id="check_box7" value="Bar|">
+                                        <label for="check_box7">Bar</label>
                                         </td>
                                         <td>
-                                        <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                        <label for="subscribeNews">Outdoor</label>    
+                                        <input type="checkbox" id="check_box8" value="Restaurant|">
+                                        <label for="check_box8">Restaurant</label>    
                                         </td>
                                         <td>
-                                        <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-                                        <label for="subscribeNews">Sports</label>    
+                                        <input type="checkbox" id="check_box9" value="Museum|">
+                                        <label for="check_box9">Museums</label>    
                                         </td>
                                     </tr>
                                 </table>
@@ -108,8 +108,8 @@
                           </div>
                     <div class="row" id="button_container">
                         <!-- <div class="col" id="search_button">  -->
-                                <button type="button" class="btn btn-primary btn-lg btn-block" id="search" onclick="update_location()">Find My Events</button>
-                            </div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" id="search" onclick="checkboxFilter()">Find My Events</button>
+                            </div> 
                         <!-- </div> -->
                 </div>
             </div>
