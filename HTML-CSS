@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Activity Finder Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="project1.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   
+</head>
+<body>
+    <!-- <div class="container"> -->
+        <div class="row">
+            <div class='col' id='image_header'>
+                <center><img class="pic" src="Logo2.png" alt="Logo"></center>
+            </div>
+        </div>
+        <div class="login_bar">
+            <nav class="navbar navbar-light" style="background-color:#701217">
+                <a class="navbar-brand" id="bar" href="#">Homepage | Login | Sign Up</a>  
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col" id="weather_api"> 
+                <div id="weather-status">
+                    <p id="current-location"></p>
+                    <p id="local-time"></p>
+                    <p id="condition"></p>
+                    <p id="current-temp"></p>
+                    <img id="weather-icon">
+                    <div id="max-min-section">
+                        <p id="max-min-description"></p>
+                        <p id="max-min-temp"></p>
+                    </div>
+                    <div id="astro">
+                        <p id="sunrise"></p>
+                        <p id="sunset"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <!-- BEGIN HERE -->
+ <div class="row test1">
+    <div id="container">
+            <img src="images/bar.jpg">
+            <div id="example">
+                <center><input type="text" id="location" onblur="update_location()" placeholder="Search for city.."></center>
+                <table type="checkbox">
+                      <tr>
+                          <td></td>
+                          <td>Categories</td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>
+                          <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                          <label for="subscribeNews">Indoor</label>
+                          </td>
+                          <td>
+                          <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                          <label for="subscribeNews">Outdoor</label>    
+                          </td>
+                          <td>
+                          <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                          <label for="subscribeNews">Sports</label>    
+                          </td>
+                      </tr>
+                      <tr>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Shopping</label>
+                            </td>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Spa & Wellness</label>    
+                            </td>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Sights & Landmarks</label>    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Indoor</label>
+                            </td>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Outdoor</label>    
+                            </td>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Sports</label>    
+                            </td>
+                            </tr>
+                    </table>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="search butt">Find My Events</button>
+            </div>  
+    </div>
+</div>
+<!-- END HERE -->
+
+            <div class="row">
+                    <div class="col" id="map_container">
+                        <div class="col" id="map"></div>
+                        
+    
+                    </div>
+                </div>
+        
+        <div class="row">
+            <div class='col' id='footer'>
+    
+            </div>
+        </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDan7vPZnf7TOz_0cfck6u5M9RqWD7pYA&callback=initMap">
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script type="text/javascript" src="scripts/project1.js"></script>
+    
+</body>
+</html>
+
+<!--Notes - ADRIAN 
+Moved jQuery call up to line 8. Added google API's to lines 119 - 121. Added javascript file source to line 122.
+Changes made to city search input box
+-->
+
+
+
+<!-- CSS BEGINS HERE -->
+
+#image_header{
+    background-color: #7da1b1;
+    height: 200px;
+    width: 100%;
+}
+#weather_api{
+    background-color: #0f1617;
+    opacity: 0.8;
+    height: 150px;
+    color: white;
+    text-align: center;
+}
+
+#current-temp, #weather-icon {
+    margin-top: -5px;
+    display: inline-block;
+}
+
+#astro, #max-min-section, #local-time, #current-location{
+    display: inline-block;
+    margin-right: 50px
+}
+
+#filter_container{
+    background-color: #cce0dd;
+    height: 600px;
+}
+#filter_boxes{
+    background-color: #7da1b1;
+    height: 300px;
+    margin: 50px 0 50px 20px;
+    padding: 50px;
+
+}
+/* #filter_1, #filter_2, #filter_3{
+    background-color: white;
+    padding: 0 7px 0 7px;
+    margin: 10px;
+} */
+/* #filter_1{
+    margin: 50px 0 50px 0;  
+    width: 15%;
+    height: 25%;
+    background-color: #395462;
+    padding: 0 7px 0 7px; 
+} */
+#filter_2{
+    width: 100%;
+}
+#search_button{
+    height: 75px;
+    margin: 85px 300px 0 300px;
+
+}
+#search{
+    font-size: 2em;
+    margin: 50px 100px 50px 100px;
+}
+#map_container{
+    background-color: #7da1b1;
+    height: 500px;
+
+}
+#map{
+    background-color: white;
+    height: 400px;
+    margin: 50px auto 50px auto;
+    width: 75%
+}
+#footer{
+    background-color: #395462;
+    height: 200px;
+}
+/* #input:checked {
+    width: 50%;
+} */
+
+.container {
+    display: flex;
+    justify-content: center;
+  }
+/* .center {
+    width: 100px;
+  } */
+#bar {
+    color: white;
+    width: 100%;
+}
+.pic {
+    float: center;
+    width: 13%;
+    max-width: 300px;
+    min-width: 250px;
+    text-align: center;
+}
+.navbar {
+    width: 101%;
+}
+#search{
+    font-size: 2em;
+    margin: 50px 200px 0 200px;
+}
+img{
+    width: 100%
+}
+#container {
+    position: relative;    
+}
+
+#example {
+   position: absolute;
+   width: 30%;
+   top: 10px;
+   left: 10px; 
+   margin: 20% 40% 10% 40%;;
+   padding: 5px;
+   background-color: #7da1b1;
+   border: 2px solid black;
+}

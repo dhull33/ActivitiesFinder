@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Activity Finder Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="project1.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   
+</head>
+<body>
+    <!-- <div class="container"> -->
+        <div class="row">
+            <div class='col' id='image_header'>
+                <center><img class="pic" src="Logo2.png" alt="Logo"></center>
+            </div>
+        </div>
+        <div class="login_bar">
+            <nav class="navbar navbar-light" style="background-color:#701217">
+                <a class="navbar-brand" id="bar" href="#">Homepage | Login | Sign Up</a>  
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col" id="weather_api"> 
+                <div id="weather-status">
+                    <p id="current-location"></p>
+                    <p id="local-time"></p>
+                    <p id="condition"></p>
+                    <p id="current-temp"></p>
+                    <img id="weather-icon">
+                    <div id="max-min-section">
+                        <p id="max-min-description"></p>
+                        <p id="max-min-temp"></p>
+                    </div>
+                    <div id="astro">
+                        <p id="sunrise"></p>
+                        <p id="sunset"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <!-- BEGIN HERE -->
+ <!-- <div class="row test1">
+    <div id="container">
+            <img src="images/bar.jpg">
+            <div id="example"> -->
+
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+          <div class="numbertext"></div>
+          <img src="images/bar.jpg" style="width:100%">
+          <div class="text"></div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext"></div>
+          <img src="images/discovery.jpg" style="width:100%">
+          <div class="text"></div>
+        </div>
+      
+        <div class="mySlides fade">
+          <div class="numbertext"></div>
+          <img src="images/theater.jpg" style="width:100%">
+          <div class="text"></div>
+        </div>
+      
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+      
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div>
+
+
+
+ <!-- <div class="row test1">-->
+    <div id="container">
+            <!--<div id="example"> -->
+        <div id="box1">
+                <center><input type="text" id="location" onblur="update_location()" placeholder="Search for city.."></center>
+                <center><table type="checkbox">
+                      <tr>
+                          <td></td>
+                          <td>Categories</td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>
+                          <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                          <label for="subscribeNews">Indoor</label>
+                          </td>
+                          <td>
+                          <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                          <label for="subscribeNews">Outdoor</label>    
+                          </td>
+                          <td>
+                          <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                          <label for="subscribeNews">Sports</label>    
+                          </td>
+                      </tr>
+                      <tr>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Shopping</label>
+                            </td>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Spa & Wellness</label>    
+                            </td>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Sights & Landmarks</label>    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Indoor</label>
+                            </td>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Outdoor</label>    
+                            </td>
+                            <td>
+                            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                            <label for="subscribeNews">Sports</label>    
+                            </td>
+                            </tr>
+                    </table></center>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="search butt">Find My Events</button>
+            </div>  
+    </div>
+</div>
+<!-- END HERE -->
+
+            <div class="row">
+                    <div class="col" id="map_container">
+                        <div class="col" id="map"></div>
+                        
+    
+                    </div>
+                </div>
+        
+        <div class="row">
+            <div class='col' id='footer'>
+    
+            </div>
+        </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDan7vPZnf7TOz_0cfck6u5M9RqWD7pYA&callback=initMap">
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script type="text/javascript" src="scripts/project1.js"></script>
+    
+</body>
+</html>
+
+<!--Notes - ADRIAN 
+Moved jQuery call up to line 8. Added google API's to lines 119 - 121. Added javascript file source to line 122.
+Changes made to city search input box
+-->
+
