@@ -2,18 +2,16 @@
 // https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Houston&key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs
 var activity = "Park"; // temporary placeholder
 
-// need to come up with activities that have more then 10 results
-
 function update_location(activity) {
     (function() {
-        //var activity = document.getElementById("activity").value;
         var location = document.getElementById("location").value;
+        location = location.substr(0, location.lastIndexOf(","));   // Removes country from location
         var apiKey = "&key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs"; 
         var latitude = [];
         var longitude = [];
         var activityLength = 20;
         
-        var fullUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + activity + "+in+" + location + apiKey;
+        var fullUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + activity + "+in+" + location + "&radius=45000" + apiKey;
     
         $.get(fullUrl).done(function(response) {
             console.log(response);
@@ -86,8 +84,6 @@ function update_location(activity) {
                 catch(err) {
                     // insert a default photo here
                 }
-                
-                
 
                 $("#event1").append("<br><br><b>" + (Number(i) + 1) + ". " + name + "<br><img src=" + photoReferenceLink + ">" + "</b><br>" + address + "<br> <b>Rating</b>: " + rating + "<b> Price Level</b>: " + priceLevel + "<br>" + typeAll);
                 
@@ -96,7 +92,7 @@ function update_location(activity) {
             
                 }
         
-            initMap(latitude, longitude, activityLength, name1, mapIcon, locationNumb);
+            initMap(latitude, longitude, activityLength, name1, mapIcon, locationNumb, location);
                 
         }
 
@@ -109,36 +105,61 @@ function update_location(activity) {
 
 }
 
-function initMap(latitude, longitude, activityLength, name1, mapIcon, locationNumb) {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
-          center: {lat: latitude[0], lng: longitude[0]}
-        });
-        
-        var locations = [];
-        for (var i = 0; i < activityLength; i++) {
-            locations.push({lat: latitude[i], lng: longitude[i]})
-        
-        }
+function initMap(latitude, longitude, activityLength, name1, mapIcon, locationNumb, location) {
     
-        var markers = locations.map(function(location, i) {
-          return new google.maps.Marker({
-            position: location,
-            label: {
-                text: locationNumb[i] + "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
-                color: "red",
-                fontSize: "24px",
-                fontWeight: "bold"
-            },
-            //label: labels[i % labels.length],
-            icon: mapIcon[i]
-          });
-        });
+    
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: {lat: latitude[0], lng: longitude[0]}
+    });
+    
+    // centers map on the city instead of one of the places
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'address': location}, function(results, status) {
+    if (status === 'OK') {
+      map.setCenter(results[0].geometry.location);
+    } else {
+      console.log('Geocode was not successful for the following reason: ' + status);
+    }
+    });
 
-        // Add a marker clusterer to manage the markers.
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-        }
+    var locations = [];
+    for (var i = 0; i < activityLength; i++) {
+        locations.push({lat: latitude[i], lng: longitude[i]})
+
+    }
+
+    var markers = locations.map(function(location, i) {
+      return new google.maps.Marker({
+        position: location,
+        label: {
+            text: locationNumb[i] + "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0",
+            color: "red",
+            fontSize: "24px",
+            fontWeight: "bold"
+        },
+        //label: labels[i % labels.length],
+        icon: mapIcon[i]
+      });
+    });
+
+    // Add a marker clusterer to manage the markers.
+    var markerCluster = new MarkerClusterer(map, markers,
+        {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    }
+
+function autoComplete() {
+    // Auto complete input box for locations
+    var input = document.getElementById('location');
+    var options = {
+        // Limits search results to city
+        types: ["(cities)"]
+    };
+    var autocomplete = new google.maps.places.Autocomplete(input, options);    
+
+}
+    
+google.maps.event.addDomListener(window, 'load', autoComplete);
 
 function update_weather() {
     (function() {
@@ -146,6 +167,7 @@ function update_weather() {
         var apiKey = "072572d88ff3433a9e1203832180903"; 
         
         var location = document.getElementById("location").value;
+        location = location.substr(0, location.lastIndexOf(","));   // Removes country from location
         
         var url2 = "&q=" + location;
         $.get(url + apiKey + url2).done(function(response) {
@@ -204,7 +226,7 @@ function update_weather() {
 }
 
 function checkboxFilter() {
-    activity = "types="
+    activity = "type="
     
     if ($("#check_box1").is(":checked")) {
         activity += $("#check_box1").val();
@@ -234,8 +256,8 @@ function checkboxFilter() {
         activity += $("#check_box9").val();
     }
     
-    if (activity == "types=") {
-        activity = "Landmarks";
+    if (activity === "type=") {
+        activity = "Landmark OR Restaurant OR Park";
     }
     console.log(activity);
     update_location(activity);
