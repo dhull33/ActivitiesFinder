@@ -220,7 +220,7 @@ function update_weather() {
         function updateUIError() {
             console.log("Error");
         }
-        update_location(activity);
+        checkboxFilter();
     })();
 
 }
