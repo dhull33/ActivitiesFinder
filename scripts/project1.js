@@ -35,10 +35,10 @@ function update_location(activity) {
             
             for (var i = 0; i < activityLength; i++) {
                 locationNumb[i] = String(i + 1);
-                var address = response.results[i].formatted_address;
-                var name = response.results[i].name;
+                //var address = response.results[i].formatted_address;
+                //var name = response.results[i].name;
                 name1[i] = response.results[i].name;
-                var rating = response.results[i].rating;
+                //var rating = response.results[i].rating;
                 mapIcon[i] = {url: response.results[i].icon,
                     scaledSize: new google.maps.Size(40, 40), // scaled size
                     origin: new google.maps.Point(0,0), // origin
@@ -56,7 +56,7 @@ function update_location(activity) {
                     var priceLevel = "N/A";
                 }
 
-
+                /*
                 var type1 = response.results[i].types[0];
                 var typeAll = type1;
                 try {
@@ -83,9 +83,56 @@ function update_location(activity) {
                 }
                 catch(err) {
                     // insert a default photo here
-                }
+                } 
+                 */
 
-                $("#event1").append("<br><br><b>" + (Number(i) + 1) + ". " + name + "<br><img src=" + photoReferenceLink + ">" + "</b><br>" + address + "<br> <b>Rating</b>: " + rating + "<b> Price Level</b>: " + priceLevel + "<br>" + typeAll);
+                 // Add Event Details
+                var placeId = response.results[i].place_id;
+
+                var detailUrl = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + apiKey;
+                
+                $.get(detailUrl).done(function (details) {
+                    console.log(details);
+
+                    //Contact information
+                    var Name = details.result.name;
+                    var webSite = details.result.website;
+                    var address = details.result.adr_address;
+                    var phoneNum = details.result.formatted_phone_number;
+                    var googleLink = details.result.url;
+
+                    //Photo Reference Link
+                    var photoReference = details.result.photos['0'].photo_reference;
+                    var photoReferenceLink = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=" + photoReference + apiKey;
+
+
+
+                    //Misc. Details
+                    var typeAll = details.result.types;
+                    var openHours = details.result.opening_hours.weekday_text;
+                    var monday = openHours[0];
+                    var tuesday = openHours[1];
+                    var wednesday = openHours[2];
+                    var thursday = openHours[3];
+                    var friday = openHours[4];
+                    var saturday = openHours[5];
+                    var sunday = openHours[6];
+
+
+                    var rating = details.result.rating;
+
+                    /*var priceLevel = response.results[i].price_level;
+                    var priceLevelDescription = ["0", "$", "$$", "$$$", "$$$$"];
+                    priceLevel = priceLevelDescription[Number(priceLevel)];
+                    if (priceLevel == undefined) {
+                        priceLevel = "No Info";
+                    } */
+
+                    
+                    //Append info to div with id=event1
+                    $('#event1').append('<div id="event2" class=card>' + '<img class="resize card-img-top float-right" src=' + photoReferenceLink + '>' + '<div class="card-body">' + '<h5 class="card-title">' + Name + '</h5>' + '<p class="card-text"><b>Rating: </b> ' + rating + '<br>' + '<b>Price: </b> ' + priceLevel + '<br>' + '<b>Address: </b>' + address + '<br>' + '<b>Phone: </b>'+ phoneNum + '<br>' + '<a href="' + webSite + '" class="card-link">' + Name + "'s Site  </a>" + '<br>' + '</p>' + '<p class="card-text"><b> Hours: </b>' +'<br>' + monday +'<br>' + tuesday +'<br>' + wednesday +'<br>' + thursday +'<br>' + friday +'<br>' + saturday +'<br>' + sunday + '<br><br>' + '</p>' + '<div class="card-footer"><a class="card-link" href="' + googleLink + '"><small class="text-muted">Find Us on Google</small></a><hr><small class="text-muted">Categories: ' + typeAll + '</small></div>' + '</div>' + '</div>');
+
+                });
                 
                 latitude[i] = response.results[i].geometry.location.lat;
                 longitude[i] = response.results[i].geometry.location.lng;
