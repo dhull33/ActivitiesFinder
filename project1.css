@@ -117,7 +117,7 @@
 #box1{
     width: 50%;
     margin: 20px auto 20px auto;
-    background: #7da1b1;
+    background-color: rgba(126, 151, 191, .5);
     padding: 2%;
 }
 
@@ -127,7 +127,7 @@
 
 
 /* Below is CSS Code for Slideshow */
-* {box-sizing:border-box}
+/* * {box-sizing:border-box} */
 
 /* Slideshow container */
 .slideshow-container {
@@ -225,7 +225,7 @@
     display: flex;
     flex-direction: row;
     padding: 0 !important;
-    height: 50px;
+
 
 }
 
@@ -239,9 +239,9 @@ display: inline
     
     flex-direction: row;
     text-decoration: none;
-    color: black;
+    color: white;
 }
-a{
+.nav-links{
     text-decoration: none;
     color: white !important;
     padding-right: 45px;
@@ -258,25 +258,9 @@ a{
 p{
     margin-top: 10px !important;
 }
-
-
-/* Event's */
-#event2 {
-    background-image: -webkit-linear-gradient(#7da1b1, #395462);
-    margin-left: 3em;
-    margin-right: 3em;
-
-}
-
-img.resize {
-    display: block;
-    max-width: 200px;
-    max-height: 200px;
-    align-items: end;
-    border-radius: 5px;
-
-}
-
-#event1 {
-    margin-right: 5em;
+#container{
+    position: absolute;
+    z-index: 1;
+    bottom: 100px;
+    width: 100%; 
 }
