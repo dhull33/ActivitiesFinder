@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,6 +9,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="project1.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs&libraries=places">
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 
    
 </head>
@@ -90,7 +95,7 @@
     <div id="container">
             <!--<div id="example"> -->
         <div id="box1">
-                <center><input type="text" id="location" onblur="update_weather()" placeholder="Search for city.."></center>
+                <center><input type="text" id="location" onblur="update_weather()" onFocus="autoComplete()" placeholder="Search for city.."></center>
                 <center><table type="checkbox">
                           <tr>
                               <td></td>
@@ -98,44 +103,49 @@
                               <td></td>
                           </tr>
                           <tr>
+<!--                              https://developers.google.com/places/supported_types-->
                               <td>
-                              <input type="checkbox" id="check_box1" value="Music OR Opera OR Musical OR Concert|">
-                              <label for="check_box1">Music</label>
+
+                              <input type="checkbox" id="check_box1" value="Music OR Opera OR Musical OR Concert OR Theater OR Movie_Theater OR Casino OR Performances OR Art_gallery|">
+                              <label for="check_box1">Indoor</label>
                               </td>
                               <td>
-                              <input type="checkbox" id="check_box2" value="Outside|">
+                              <input type="checkbox" id="check_box2" value="Outside OR Outdoor OR Amusement_Park OR Hiking OR Trails OR Snowboarding OR Skiing OR Park OR Beach OR Biking OR Wildlife OR Water Park OR Theme Park OR Zoo OR campground|">
                               <label for="check_box2">Outdoor</label>    
                               </td>
                               <td>
-                              <input type="checkbox" id="check_box3" value="Sports OR Athletic|">
+
+                              <input type="checkbox" id="check_box3" value="Sports OR Athletic OR Kayaking OR Swimming OR Bowling OR Golf OR Soccer OR Football OR Baseball OR Tennis OR Hockey OR Shooting|">
                               <label for="check_box3">Sports</label>    
                               </td>
                           </tr>
                           <tr>
                                 <td>
-                                <input type="checkbox" id="check_box4" value="Shopping OR Mall OR Shop OR Market|">
+
+                                <input type="checkbox" id="check_box4" value="Shopping OR Mall OR Shop OR Market OR department_store OR clothing_store OR electronics_store OR supermarket|">
                                 <label for="check_box4">Shopping</label>
                                 </td>
                                 <td>
-                                <input type="checkbox" id="check_box5" value="Spa OR Wellness|">
+                                <input type="checkbox" id="check_box5" value="Spa OR Wellness OR Yogo OR Pilates OR Resorts|">
                                 <label for="check_box5">Spa & Wellness</label>    
                                 </td>
                                 <td>
-                                <input type="checkbox" id="check_box6" value="Landmark OR Sightsee|">
+                                <input type="checkbox" id="check_box6" value="Landmark OR Sights OR Statues OR Monuments OR Scenic OR Castles OR Ancient OR Ruins|">
                                 <label for="check_box6">Sights & Landmarks</label>    
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                <input type="checkbox" id="check_box7" value="Bar OR Pub|">
+
+                                <input type="checkbox" id="check_box7" value="Bar OR Pub OR Winery OR Distilleries|">
                                 <label for="check_box7">Bar</label>
                                 </td>
                                 <td>
-                                <input type="checkbox" id="check_box8" value="Restaurant OR Food|">
+                                <input type="checkbox" id="check_box8" value="Restaurant OR Food OR Cafe|">
                                 <label for="check_box8">Restaurant</label>    
                                 </td>
                                 <td>
-                                <input type="checkbox" id="check_box9" value="Museum|">
+                                <input type="checkbox" id="check_box9" value="Museum">
                                 <label for="check_box9">Museums</label>    
                                 </td>
                             </tr>
@@ -159,21 +169,16 @@
     
             </div>
         </div>
-    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDan7vPZnf7TOz_0cfck6u5M9RqWD7pYA&callback=initMap">
-    </script>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    
+<!--
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs&libraries=places&callback=initMap"
+        async defer></script>
+-->
     <script type="text/javascript" src="scripts/project1.js"></script>
     
 </body>
 </html>
-
-<!--Notes - ADRIAN 
-Moved jQuery call up to line 8. Added google API's to lines 119 - 121. Added javascript file source to line 122.
-Changes made to city search input box
--->
 
