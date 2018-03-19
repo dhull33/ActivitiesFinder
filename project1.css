@@ -258,3 +258,25 @@ a{
 p{
     margin-top: 10px !important;
 }
+
+
+/* Event's */
+#event2 {
+    background-image: -webkit-linear-gradient(#7da1b1, #395462);
+    margin-left: 3em;
+    margin-right: 3em;
+
+}
+
+img.resize {
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+    align-items: end;
+    border-radius: 5px;
+
+}
+
+#event1 {
+    margin-right: 5em;
+}
