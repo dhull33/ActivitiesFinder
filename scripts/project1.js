@@ -1,6 +1,5 @@
 // need to enable Allow-control allow origin* google chrome plugin
 // https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Houston&key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs
-var activity = "Park"; // temporary placeholder
 
 function update_location(activity) {
     (function() {
@@ -194,6 +193,7 @@ function initMap(latitude, longitude, activityLength, name1, mapIcon, locationNu
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
     }
+    
 
 function autoComplete() {
     // Auto complete input box for locations
@@ -206,7 +206,7 @@ function autoComplete() {
 
 }
     
-google.maps.event.addDomListener(window, 'load', autoComplete);
+//google.maps.event.addDomListener(window, 'load', autoComplete);
 
 function update_weather() {
     (function() {
@@ -267,7 +267,7 @@ function update_weather() {
         function updateUIError() {
             console.log("Error");
         }
-        checkboxFilter();
+        update_location(activity);
     })();
 
 }
@@ -307,7 +307,7 @@ function checkboxFilter() {
         activity = "Landmark OR Restaurant OR Park";
     }
     console.log(activity);
-    update_location(activity);
+    update_weather()
     
 }
 
