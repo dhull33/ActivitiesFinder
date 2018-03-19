@@ -11,37 +11,20 @@
 
    
 </head>
-<body>
-    <!-- <div class="container"> -->
-        <div class="row">
-            <div class='col' id='image_header'>
-                <center><img class="pic" src="images/Logo2.png" alt="Logo"></center>
-            </div>
-        </div>
-        <div class="login_bar">
-            <nav class="navbar navbar-light" style="background-color:#701217">
-                <a class="navbar-brand" id="bar" href="#">Homepage | Login | Sign Up</a>  
-            </nav>
-        </div>
-        <div class="row">
-            <div class="col" id="weather_api"> 
-                <div id="weather-status">
-                    <p id="current-location"></p>
-                    <p id="local-time"></p>
-                    <p id="condition"></p>
-                    <p id="current-temp"></p>
-<!--                    <img id="weather-icon">-->
-                    <div id="max-min-section">
-                        <p id="max-min-description"></p>
-                        <p id="max-min-temp"></p>
-                    </div>
-                    <div id="astro">
-                        <p id="sunrise"></p>
-                        <p id="sunset"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">add
+        
+        <nav class="navbar fixed-top navbar-dark bg-dark">
+                            <img style="height:50px; width:50px; margin-left: 25px" src="images/Logo2.png">
+                            <ul class="nav">
+                                <li><strong><a href="#body"></strong>Home</a></li>
+                                <li><a href="#slideshow">Search</a></li>
+                                <li><a href="#map_container">Maps</a></li>
+                            </ul>
+                        
+                                    <p id="current-location"></p><div class="temp"><p id="current-temp"></p></div><div class= "weather"><img id="weather-icon"></div>              
+        </nav>
+        
+        
  <!-- BEGIN HERE -->
  <!-- <div class="row test1">
     <div id="container">
@@ -50,7 +33,7 @@
 
 
 <!-- Slideshow container -->
-<div class="slideshow-container">
+<div class="slideshow-container" id="slideshow">
 
         <!-- Full-width images with number and caption text -->
         <div class="mySlides fade">
@@ -99,39 +82,39 @@
                           </tr>
                           <tr>
                               <td>
-                              <input type="checkbox" id="check_box1" value="Music OR Opera OR Musical OR Concert|">
-                              <label for="check_box1">Music</label>
+                              <input type="checkbox" id="check_box1" value="Indoor|">
+                              <label for="check_box1">Indoor</label>
                               </td>
                               <td>
                               <input type="checkbox" id="check_box2" value="Outside|">
                               <label for="check_box2">Outdoor</label>    
                               </td>
                               <td>
-                              <input type="checkbox" id="check_box3" value="Sports OR Athletic|">
+                              <input type="checkbox" id="check_box3" value="Sports|">
                               <label for="check_box3">Sports</label>    
                               </td>
                           </tr>
                           <tr>
                                 <td>
-                                <input type="checkbox" id="check_box4" value="Shopping OR Mall OR Shop OR Market|">
+                                <input type="checkbox" id="check_box4" value="Shopping|">
                                 <label for="check_box4">Shopping</label>
                                 </td>
                                 <td>
-                                <input type="checkbox" id="check_box5" value="Spa OR Wellness|">
+                                <input type="checkbox" id="check_box5" value="Spa|Wellness|">
                                 <label for="check_box5">Spa & Wellness</label>    
                                 </td>
                                 <td>
-                                <input type="checkbox" id="check_box6" value="Landmark OR Sightsee|">
+                                <input type="checkbox" id="check_box6" value="Landmark|">
                                 <label for="check_box6">Sights & Landmarks</label>    
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                <input type="checkbox" id="check_box7" value="Bar OR Pub|">
+                                <input type="checkbox" id="check_box7" value="Bar|">
                                 <label for="check_box7">Bar</label>
                                 </td>
                                 <td>
-                                <input type="checkbox" id="check_box8" value="Restaurant OR Food|">
+                                <input type="checkbox" id="check_box8" value="Restaurant|">
                                 <label for="check_box8">Restaurant</label>    
                                 </td>
                                 <td>
