@@ -1,5 +1,6 @@
 // need to enable Allow-control allow origin* google chrome plugin
 // https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Houston&key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs
+var activity = "Park"; // temporary placeholder
 
 function update_location(activity) {
     (function() {
@@ -8,7 +9,7 @@ function update_location(activity) {
         var apiKey = "&key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs"; 
         var latitude = [];
         var longitude = [];
-        var activityLength = 20;
+        var activityLength = 18;
         
         var fullUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + activity + "+in+" + location + "&radius=45000" + apiKey;
     
@@ -129,7 +130,7 @@ function update_location(activity) {
 
                     
                     //Append info to div with id=event1
-                    $('#event1').append('<div id="event2" class=card>' + '<img class="resize card-img-top float-right" src=' + photoReferenceLink + '>' + '<div class="card-body">' + '<h5 class="card-title">' + Name + '</h5>' + '<p class="card-text"><b>Rating: </b> ' + rating + '<br>' + '<b>Price: </b> ' + priceLevel + '<br>' + '<b>Address: </b>' + address + '<br>' + '<b>Phone: </b>'+ phoneNum + '<br>' + '<a href="' + webSite + '" class="card-link">' + Name + "'s Site  </a>" + '<br>' + '</p>' + '<p class="card-text"><b> Hours: </b>' +'<br>' + monday +'<br>' + tuesday +'<br>' + wednesday +'<br>' + thursday +'<br>' + friday +'<br>' + saturday +'<br>' + sunday + '<br><br>' + '</p>' + '<div class="card-footer"><a class="card-link" href="' + googleLink + '"><small class="text-muted">Find Us on Google</small></a><hr><small class="text-muted">Categories: ' + typeAll + '</small></div>' + '</div>' + '</div>');
+                    $('#event1').append('<div id="event2" class=card>' + '<img class="resize card-img-top float-right" src=' + photoReferenceLink + '>' + '<div class="card-body">' + '<h5 class=" Font ard-title">' + Name + '</h5>' + '<p class=" Font card-text"><b>Rating: </b> ' + rating + '<br>' + '<b>Price: </b> ' + priceLevel + '<br>' + '<b>Address: </b>' + address + '<br>' + '<b>Phone: </b>'+ phoneNum + '<br>' + '<a href="' + webSite + '" class="card-link">' + Name + "'s Site  </a>" + '<br>' + '</p>' + '<p class="Font card-text"><b> Hours: </b>' +'<br>' + monday +'<br>' + tuesday +'<br>' + wednesday +'<br>' + thursday +'<br>' + friday +'<br>' + saturday +'<br>' + sunday + '<br><br>' + '</p>' + '<div class="card-footer"><a class="card-link" href="' + googleLink + '"><small class="text-muted">Find Us on Google</small></a><hr><small class="text-muted">Categories: ' + typeAll + '</small></div>' + '</div>' + '</div>');
 
                 });
                 
@@ -193,7 +194,6 @@ function initMap(latitude, longitude, activityLength, name1, mapIcon, locationNu
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
     }
-    
 
 function autoComplete() {
     // Auto complete input box for locations
@@ -206,7 +206,7 @@ function autoComplete() {
 
 }
     
-//google.maps.event.addDomListener(window, 'load', autoComplete);
+
 
 function update_weather() {
     (function() {
@@ -227,6 +227,7 @@ function update_weather() {
 
         // handle success
         function updateUISuccess(response) {
+            $("#weather").text("");
             var condition = response.current.condition.text;
             degC = response.current.temp_c;
             degF = response.current.temp_f;
@@ -260,15 +261,20 @@ function update_weather() {
             $("#weather-icon").attr("src", "images/weather_icons/" + isDay +"/" + condition + ".png");
             $("#sunrise").html("<b>Sunrise: </b>" + sunrise);
             $("#sunset").html("<b>Sunset: </b>" + sunset);
-            
+
+            //Weather NavBar
+
+
+            $('#weather').append('<span class="navbar-text" style="color:white;">'+ currentLocation + '<img src="images/weather_icons/' + isDay + '/' + condition + '.png"' +'>' + degF + '&#176;F' +  '</span>')
         }
 
         // handle error
         function updateUIError() {
             console.log("Error");
         }
-        update_location(activity);
+    update_location(activity);
     })();
+
 
 }
 
@@ -307,23 +313,6 @@ function checkboxFilter() {
         activity = "Landmark OR Restaurant OR Park";
     }
     console.log(activity);
-    update_weather()
+    update_weather(activity);
     
-}
-
-
-// Below is JavaScript Code for Slideshow
-var slideIndex = 0;
-carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none"; 
-    }
-    slideIndex++;
-    if (slideIndex > x.length) {slideIndex = 1} 
-    x[slideIndex-1].style.display = "block"; 
-    setTimeout(carousel, 4000); // Change image every 2 seconds
 }
