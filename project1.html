@@ -7,8 +7,10 @@
     <title>Activity Finder Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="project1.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="project1.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs&libraries=places">
     </script>
@@ -16,21 +18,23 @@
 
    
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">add
-        
+<body class='back' data-spy="scroll" data-target=".navbar" data-offset="50">add
+
         <nav class="navbar fixed-top navbar-dark bg-dark">
-            <img style="height:50px; width:50px; margin-left: 25px" src="images/Logo2.png">
+            <img style="height:50px; max-width: 80px;" src="images/Logo2.png">
             <ul class="nav">
-                <li><strong><a href="#body">Home</a></strong></li>
-                <li><a href="#slideshow">Search</a></li>
-                <li><a href="#map_container">Maps</a></li>
+                <li><strong><a class="navPush" href="#body">Home</a></strong></li>
+                <li><a class="navPush" href="#slideshow">Search</a></li>
+                <li><a class="navPush" href="#map_container">Maps</a></li>
             </ul>
 
-            <p id="current-location"></p>
-            <p id="current-temp"></p>
-            <img id="weather-icon">  
+            <label id="weather" style="margin: 1em 1em 1em auto;"></label>
+
+
+
 
         </nav>
+
         
         
  <!-- BEGIN HERE -->
@@ -40,11 +44,11 @@
             <div id="example"> -->
 
 
-<!-- Slideshow container -->
+<!-- Slideshow container
 <div class="slideshow-class">
     <div class="slideshow-container" id="slideshow">
 
-            <!-- Full-width images with number and caption text -->
+            <!-- Full-width images with number and caption text
             <div class="mySlides">
             <div class="numbertext"></div>
             <img src="images/slideshow/bar.jpg" style="width:100%">
@@ -53,7 +57,7 @@
         
             <div class="mySlides">
             <div class="numbertext"></div>
-            <img src="images/slideshow/party.jpg" style="width:100%;height:480px">
+            <img src="images/slideshow/discovery.jpg" style="width:100%;height:480px">
             <div class="text"></div>
             </div>
         
@@ -61,87 +65,110 @@
             <div class="numbertext"></div>
             <img src="images/slideshow/theater.jpg" style="width:100%">
             <div class="text"></div>
-        </div>
+            </div>
         
     </div>
-</div>
+</div> -->
 
 
 
- <!-- <div class="row test1">-->
-    <div id="container">
-            <!--<div id="example"> -->
-        <div id="box1">
-                <center><input type="text" id="location" onFocus="autoComplete()" placeholder="Search for city.."></center>
-                <center><table type="checkbox">
-                          <tr>
-                              <td></td>
-                              <td>Categories</td>
-                              <td></td>
-                          </tr>
-                          <tr>
-<!--                              https://developers.google.com/places/supported_types-->
-                              <td>
 
-                              <input type="checkbox" id="check_box1" value="Music OR Opera OR Musical OR Concert OR Theater OR Movie_Theater OR Casino OR Performances OR Art_gallery|">
-                              <label for="check_box1">Indoor</label>
-                              </td>
-                              <td>
-                              <input type="checkbox" id="check_box2" value="Outside OR Outdoor OR Amusement_Park OR Hiking OR Trails OR Snowboarding OR Skiing OR Park OR Beach OR Biking OR Wildlife OR Water Park OR Theme Park OR Zoo OR campground|">
-                              <label for="check_box2">Outdoor</label>    
-                              </td>
-                              <td>
+    <div class="card bg-dark text-white">
+        <img class="card-img" src="images/peopleBar.jpeg" style="max-height: 700px">
+        <div class="card-img-overlay">
 
-                              <input type="checkbox" id="check_box3" value="Sports OR Athletic OR Kayaking OR Swimming OR Bowling OR Golf OR Soccer OR Football OR Baseball OR Tennis OR Hockey OR Shooting|">
-                              <label for="check_box3">Sports</label>    
-                              </td>
-                          </tr>
-                          <tr>
-                                <td>
+            <h1 class="welcome card-title">Welcome to</h1>
+            <h1 class='welcome1 card-title'>Activities Finder</h1>
+            <div id="box1" class="card-body">
 
-                                <input type="checkbox" id="check_box4" value="Shopping OR Mall OR Shop OR Market OR department_store OR clothing_store OR electronics_store OR supermarket|">
-                                <label for="check_box4">Shopping</label>
-                                </td>
-                                <td>
-                                <input type="checkbox" id="check_box5" value="Spa OR Wellness OR Yogo OR Pilates OR Resorts|">
-                                <label for="check_box5">Spa & Wellness</label>    
-                                </td>
-                                <td>
-                                <input type="checkbox" id="check_box6" value="Landmark OR Sights OR Statues OR Monuments OR Scenic OR Castles OR Ancient OR Ruins|">
-                                <label for="check_box6">Sights & Landmarks</label>    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+            <center><input class = 'searchBox' type="text" id="location" onFocus="autoComplete()" placeholder="Search for city.."></center>
+            <center><table style="margin-top: 3%; margin-left: 10%">
 
-                                <input type="checkbox" id="check_box7" value="Bar OR Pub OR Winery OR Distilleries|">
-                                <label for="check_box7">Bar</label>
-                                </td>
-                                <td>
-                                <input type="checkbox" id="check_box8" value="Restaurant OR Food OR Cafe|">
-                                <label for="check_box8">Restaurant</label>    
-                                </td>
-                                <td>
-                                <input type="checkbox" id="check_box9" value="Museum">
-                                <label for="check_box9">Museums</label>    
-                                </td>
-                            </tr>
-                        </table></center>
-                    <button type="button" class="btn btn-primary btn-lg btn-block" id="search_butt" onclick="checkboxFilter()">Find My Events</button>
-            </div>  
+                      <tr>
+                          <td>
+
+                          <input class = 'card-text' type="checkbox" id="check_box1" value="Music OR Opera OR Musical OR Concert OR Theater OR Movie_Theater OR Casino OR Performances OR Art_gallery|">
+
+                          <label class ='card-text' for="check_box1">Indoor</label>
+
+                          </td>
+
+                          <td>
+                          <input class = 'card-text' type="checkbox" id="check_box2" value="Outside OR Outdoor OR Amusement_Park OR Hiking OR Trails OR Snowboarding OR Skiing OR Park OR Beach OR Biking OR Wildlife OR Water Park OR Theme Park OR Zoo OR campground|">
+
+                          <label class = 'card-text' for="check_box2">Outdoor</label>
+
+                          </td>
+
+                          <td>
+
+                          <input class = 'card-text' type="checkbox" id="check_box3" value="Sports OR Athletic OR Kayaking OR Swimming OR Bowling OR Golf OR Soccer OR Football OR Baseball OR Tennis OR Hockey OR Shooting|">
+                          <label class = 'card-text' for="check_box3">Sports</label>
+
+                          </td>
+                      </tr>
+                      <tr>
+                            <td>
+
+                            <input class = 'card-text' type="checkbox" id="check_box4" value="Shopping OR Mall OR Shop OR Market OR department_store OR clothing_store OR electronics_store OR supermarket|">
+                            <label class = 'card-text' for="check_box4">Shopping</label>
+                            </td>
+
+                            <td>
+                            <input class = 'card-text' type="checkbox" id="check_box5" value="Spa OR Wellness OR Yogo OR Pilates OR Resorts|">
+                            <label class = 'card-text' for="check_box5">Wellness</label>
+                            </td>
+
+                            <td>
+                            <input class = 'card-text' type="checkbox" id="check_box6" value="Landmark OR Sights OR Statues OR Monuments OR Scenic OR Castles OR Ancient OR Ruins|">
+                            <label class = 'card-text' for="check_box6">Landmarks</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+
+                            <input class = 'card-text' type="checkbox" id="check_box7" value="Bar OR Pub OR Winery OR Distilleries|">
+                            <label class = 'card-text' for="check_box7">Bar</label>
+                            </td>
+
+                            <td>
+                            <input class = 'card-text' type="checkbox" id="check_box8" value="Restaurant OR Food OR Cafe|">
+                            <label class = 'card-text' for="check_box8">Restaurant</label>
+                            </td>
+
+                            <td>
+                            <input class = 'card-text' type="checkbox" id="check_box9" value="Museum">
+                            <label class = 'card-text' for="check_box9">Museums</label>
+                            </td>
+
+                        </tr>
+                    </table></center>
+                <a href="#" class='btn btn-primary btn-lg' onclick="checkboxFilter()" style="margin-top: 2%; margin-left:35%;">Find My Activities</a>
+            </div>
+            </div>
+
     </div>
 
-<!-- END HERE-- Event Card's Start at 'event1' -->
-    <div id='event1' class = 'card-columns'></div>
 
-    <div class="row">
+<!-- END HERE-- Event Card's Start at 'event1' -->
+
+
+    <div id='event1' class = 'back card-columns' style="margin-top: 0.5em;"></div>
+
+
+
+
+    <div class=" row">
             <div class="col" id="map_container">
                 <div class="col" id="map"></div>
             </div>
     </div>
         
     <div class="row">
-        <div class='col' id='footer'></div>
+        <div class='col'>
+            <p class="Font">You's At The End, Friend</p>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
