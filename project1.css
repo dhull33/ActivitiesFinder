@@ -322,9 +322,14 @@ label{
 }
 
 .Font{
+<<<<<<< HEAD
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
 
+=======
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+>>>>>>> b95e641af26541212de6c743c63302024cadf889
 }
 
 input#location {

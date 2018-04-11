@@ -94,7 +94,11 @@ function update_location(activity) {
 
                     
                     //Append info to div with id=event1
+<<<<<<< HEAD
                     $('#event1').append('<div id="event2" class=card>' + '<img class="resize card-img-top float-right" src=' + photoReferenceLink + '>' + '<div class="card-body">' + '<h5 class=" Font card-title">' + Name + '</h5>' + '<p class=" Font card-text"><b>Rating: </b> ' + rating + '<br>' + '<b>Address: </b>' + address + '<br>' + '<b>Phone: </b>'+ phoneNum + '<br>' + '<a href="' + webSite + '" class="card-link">' + Name + "'s Site  </a>" + '<br>' + '</p>' + '<p class="Font card-text"><b> Hours: </b>' +'<br>' + monday +'<br>' + tuesday +'<br>' + wednesday +'<br>' + thursday +'<br>' + friday +'<br>' + saturday +'<br>' + sunday + '<br><br>' + '</p>' + '<div class="card-footer"><a class="card-link" href="' + googleLink + '"><small class="text-muted">Find Us on Google</small></a><hr><small class="text-muted">Categories: ' + typeAll + '</small></div>' + '</div>' + '</div>');
+=======
+                    $('#event1').append('<div id="event2" class=card>' + '<img class="resize card-img-top float-right" src=' + photoReferenceLink + '>' + '<div class="card-body">' + '<h5 class=" Font ard-title">' + Name + '</h5>' + '<p class=" Font card-text"><b>Rating: </b> ' + rating + '<br>' + '<b>Address: </b>' + address + '<br>' + '<b>Phone: </b>'+ phoneNum + '<br>' + '<a href="' + webSite + '" class="card-link">' + Name + "'s Site  </a>" + '<br>' + '</p>' + '<p class="Font card-text"><b> Hours: </b>' +'<br>' + monday +'<br>' + tuesday +'<br>' + wednesday +'<br>' + thursday +'<br>' + friday +'<br>' + saturday +'<br>' + sunday + '<br><br>' + '</p>' + '<div class="card-footer"><a class="card-link" href="' + googleLink + '"><small class="text-muted">Find Us on Google</small></a><hr><small class="text-muted">Categories: ' + typeAll + '</small></div>' + '</div>' + '</div>');
+>>>>>>> b95e641af26541212de6c743c63302024cadf889
 
                 });
                 
@@ -109,6 +113,7 @@ function update_location(activity) {
 
         // handle error
         function updateUIError() {
+            
             alert("Error");
         }
         
@@ -126,6 +131,7 @@ function initMap(latitude, longitude, activityLength, name1, mapIcon, locationNu
     
     // centers map on the city instead of one of the places
     var geocoder = new google.maps.Geocoder();
+    
     geocoder.geocode({'address': location}, function(results, status) {
     if (status === 'OK') {
       map.setCenter(results[0].geometry.location);
@@ -280,4 +286,7 @@ function checkboxFilter() {
     update_weather(activity);
     
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b95e641af26541212de6c743c63302024cadf889
