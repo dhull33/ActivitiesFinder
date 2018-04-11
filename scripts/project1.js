@@ -145,6 +145,7 @@ function update_location(activity) {
 
         // handle error
         function updateUIError() {
+            
             alert("Error");
         }
         
@@ -162,6 +163,7 @@ function initMap(latitude, longitude, activityLength, name1, mapIcon, locationNu
     
     // centers map on the city instead of one of the places
     var geocoder = new google.maps.Geocoder();
+    
     geocoder.geocode({'address': location}, function(results, status) {
     if (status === 'OK') {
       map.setCenter(results[0].geometry.location);
