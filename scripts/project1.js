@@ -6,7 +6,7 @@ function update_location(activity) {
     (function() {
         var location = document.getElementById("location").value;
         location = location.substr(0, location.lastIndexOf(","));   // Removes country from location
-        var apiKey = "&key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs"; 
+        var apiKey = "YOUR API KEY"; 
         var latitude = [];
         var longitude = [];
         var activityLength = 18;
@@ -94,11 +94,9 @@ function update_location(activity) {
 
                     
                     //Append info to div with id=event1
-<<<<<<< HEAD
+
                     $('#event1').append('<div id="event2" class=card>' + '<img class="resize card-img-top float-right" src=' + photoReferenceLink + '>' + '<div class="card-body">' + '<h5 class=" Font card-title">' + Name + '</h5>' + '<p class=" Font card-text"><b>Rating: </b> ' + rating + '<br>' + '<b>Address: </b>' + address + '<br>' + '<b>Phone: </b>'+ phoneNum + '<br>' + '<a href="' + webSite + '" class="card-link">' + Name + "'s Site  </a>" + '<br>' + '</p>' + '<p class="Font card-text"><b> Hours: </b>' +'<br>' + monday +'<br>' + tuesday +'<br>' + wednesday +'<br>' + thursday +'<br>' + friday +'<br>' + saturday +'<br>' + sunday + '<br><br>' + '</p>' + '<div class="card-footer"><a class="card-link" href="' + googleLink + '"><small class="text-muted">Find Us on Google</small></a><hr><small class="text-muted">Categories: ' + typeAll + '</small></div>' + '</div>' + '</div>');
-=======
-                    $('#event1').append('<div id="event2" class=card>' + '<img class="resize card-img-top float-right" src=' + photoReferenceLink + '>' + '<div class="card-body">' + '<h5 class=" Font ard-title">' + Name + '</h5>' + '<p class=" Font card-text"><b>Rating: </b> ' + rating + '<br>' + '<b>Address: </b>' + address + '<br>' + '<b>Phone: </b>'+ phoneNum + '<br>' + '<a href="' + webSite + '" class="card-link">' + Name + "'s Site  </a>" + '<br>' + '</p>' + '<p class="Font card-text"><b> Hours: </b>' +'<br>' + monday +'<br>' + tuesday +'<br>' + wednesday +'<br>' + thursday +'<br>' + friday +'<br>' + saturday +'<br>' + sunday + '<br><br>' + '</p>' + '<div class="card-footer"><a class="card-link" href="' + googleLink + '"><small class="text-muted">Find Us on Google</small></a><hr><small class="text-muted">Categories: ' + typeAll + '</small></div>' + '</div>' + '</div>');
->>>>>>> b95e641af26541212de6c743c63302024cadf889
+
 
                 });
                 
@@ -181,7 +179,7 @@ function autoComplete() {
 function update_weather() {
     (function() {
         var url = "http://api.apixu.com/v1/forecast.json?key=";
-        var apiKey = "072572d88ff3433a9e1203832180903"; 
+        var apiKey = "YOUR API KEY"; 
         
         var location = document.getElementById("location").value;
         location = location.substr(0, location.lastIndexOf(","));   // Removes country from location
@@ -286,7 +284,6 @@ function checkboxFilter() {
     update_weather(activity);
     
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> b95e641af26541212de6c743c63302024cadf889
+
+
